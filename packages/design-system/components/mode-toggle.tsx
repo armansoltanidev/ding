@@ -11,9 +11,9 @@ import {
 } from '../components/ui/dropdown-menu';
 
 const themes = [
-  { label: 'Light', value: 'light' },
-  { label: 'Dark', value: 'dark' },
-  { label: 'System', value: 'system' },
+  { label: 'روشن', value: 'light' },
+  { label: 'تاریک', value: 'dark' },
+  { label: 'سیستم', value: 'system' },
 ];
 
 export const ModeToggle = () => {

@@ -1,8 +1,7 @@
 import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
 import animate from 'tailwindcss-animate';
-import defaultTheme from 'tailwindcss/defaultTheme';
-import typographyConfig from './typography.config';
+
 
 export const config: Config = {
   darkMode: ['class'],
@@ -24,6 +23,7 @@ export const config: Config = {
   		}
   	},
   	extend: {
+		
   		colors: {
   			border: 'hsl(var(--border) / <alpha-value>)',
   			input: 'hsl(var(--input) / <alpha-value>)',
@@ -83,15 +83,16 @@ export const config: Config = {
   		},
   		fontFamily: {
   			sans: [
-  				'var(--font-geist-sans)',
-                    ...defaultTheme.fontFamily.sans
-                ],
-  			mono: [
-  				'var(--font-geist-mono)',
-                    ...defaultTheme.fontFamily.mono
+  				'var(--font-sansx)',
                 ]
+
+                
   		},
   		keyframes: {
+			'caret-blink': {
+                            '0%,70%,100%': { opacity: '1' },
+                            '20%,50%': { opacity: '0' },
+        },
   			'accordion-down': {
   				from: {
   					height: '0'
@@ -111,7 +112,8 @@ export const config: Config = {
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+			'caret-blink': 'caret-blink 1.25s ease-out infinite',
   		},
   		typography: 'typographyConfig'
   	}

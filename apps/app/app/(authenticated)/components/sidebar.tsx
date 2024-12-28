@@ -190,7 +190,7 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
 
   return (
     <>
-      <Sidebar variant="inset">
+      <Sidebar side='right'>
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>

@@ -21,7 +21,7 @@ const SignInPage = () => (
               <SignIn.Step name="start">
                 <Card className="w-full sm:w-96">
                   <CardHeader>
-                    <CardTitle>خوش آمدید</CardTitle>
+                    <CardTitle>به دینگ خوش اومدین</CardTitle>
                     <CardDescription>اطلاعات زیر را وارد کنین تا وارد پنل کاربری خودتون بشین</CardDescription>
                   </CardHeader>
                   <CardContent className="grid gap-y-4">

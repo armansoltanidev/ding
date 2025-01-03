@@ -1,19 +1,13 @@
-'use client';
+"use client";
 
-import { OrganizationSwitcher, UserButton } from '@repo/auth/client';
-import { ModeToggle } from '@repo/design-system/components/mode-toggle';
+import { UserButton } from "@repo/auth/client";
+import { ModeToggle } from "@repo/design-system/components/mode-toggle";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from '@repo/design-system/components/ui/collapsible';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@repo/design-system/components/ui/dropdown-menu';
+} from "@repo/design-system/components/ui/collapsible";
+
 import {
   Sidebar,
   SidebarContent,
@@ -31,26 +25,21 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   useSidebar,
-} from '@repo/design-system/components/ui/sidebar';
-import { cn } from '@repo/design-system/lib/utils';
+} from "@repo/design-system/components/ui/sidebar";
+
+import { cn } from "@repo/design-system/lib/utils";
 import {
   AnchorIcon,
   BookOpenIcon,
   BotIcon,
-  ChevronRightIcon,
-  FolderIcon,
-  FrameIcon,
+  CalendarRange,
+  ChevronDownIcon,
+  EarthIcon,
   LifeBuoyIcon,
-  MapIcon,
-  MoreHorizontalIcon,
-  PieChartIcon,
   SendIcon,
   Settings2Icon,
-  ShareIcon,
-  SquareTerminalIcon,
-  Trash2Icon,
-} from 'lucide-react';
-import type { ReactNode } from 'react';
+} from "lucide-react";
+import type { ReactNode } from "react";
 
 type GlobalSidebarProperties = {
   readonly children: ReactNode;
@@ -58,129 +47,135 @@ type GlobalSidebarProperties = {
 
 const data = {
   user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
+    name: "shadcn",
+    email: "m@example.com",
+    avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
     {
-      title: 'Playground',
-      url: '#',
-      icon: SquareTerminalIcon,
+      title: "شــارژ بین الملل",
+      url: "#",
+      icon: EarthIcon,
       isActive: true,
       items: [
         {
-          title: 'History',
-          url: '#',
+          title: "شارژ مستقیم افغانستان",
+          url: "#",
         },
         {
-          title: 'Starred',
-          url: '#',
+          title: "بسته مستقیم افغانستان",
+          url: "#",
         },
         {
-          title: 'Settings',
-          url: '#',
+          title: "بسته های رومینگ افغانستان",
+          url: "#",
         },
       ],
     },
     {
-      title: 'Models',
-      url: '#',
-      icon: BotIcon,
+      title: "مدیریت سفارشات",
+      url: "#",
+      icon: CalendarRange,
+      isActive: true,
       items: [
         {
-          title: 'Genesis',
-          url: '#',
+          title: "پیگیری سفارشات",
+          url: "#",
         },
         {
-          title: 'Explorer',
-          url: '#',
+          title: "سفارشات  در انتظار",
+          url: "#",
         },
         {
-          title: 'Quantum',
-          url: '#',
+          title: "درخواست ویرایش سفارش",
+          url: "#",
         },
       ],
     },
     {
-      title: 'Documentation',
-      url: '#',
+      title: "مدیریت کارت ها",
+      url: "#",
+      icon: BotIcon,
+      isActive: true,
+      items: [
+        {
+          title: "ثبت کارت جدید",
+          url: "#",
+        },
+        {
+          title: "ویرایش کارت",
+          url: "#",
+        },
+        {
+          title: "درخواست رفع مسدودی",
+          url: "#",
+        },
+      ],
+    },
+
+    {
+      title: "گزارش ها",
+      url: "#",
+      isActive: true,
       icon: BookOpenIcon,
       items: [
         {
-          title: 'Introduction',
-          url: '#',
+          title: "گزارش تراکنش ",
+          url: "#",
         },
         {
-          title: 'Get Started',
-          url: '#',
+          title: "گزارش افزایش موجودی",
+          url: "#",
         },
         {
-          title: 'Tutorials',
-          url: '#',
+          title: "گزارش کلی",
+          url: "#",
         },
         {
-          title: 'Changelog',
-          url: '#',
+          title: "نمودار فروش",
+          url: "#",
         },
       ],
     },
     {
-      title: 'Settings',
-      url: '#',
+      title: "تنظیمات",
+      url: "#",
       icon: Settings2Icon,
       items: [
         {
-          title: 'General',
-          url: '#',
+          title: "General",
+          url: "#",
         },
         {
-          title: 'Team',
-          url: '#',
+          title: "Team",
+          url: "#",
         },
         {
-          title: 'Billing',
-          url: '#',
+          title: "Billing",
+          url: "#",
         },
         {
-          title: 'Limits',
-          url: '#',
+          title: "Limits",
+          url: "#",
         },
       ],
     },
   ],
   navSecondary: [
     {
-      title: 'Webhooks',
-      url: '/webhooks',
+      title: "Webhooks",
+      url: "/webhooks",
       icon: AnchorIcon,
     },
     {
-      title: 'Support',
-      url: '#',
+      title: "Support",
+      url: "#",
       icon: LifeBuoyIcon,
     },
     {
-      title: 'Feedback',
-      url: '#',
+      title: "Feedback",
+      url: "#",
       icon: SendIcon,
-    },
-  ],
-  projects: [
-    {
-      name: 'Design Engineering',
-      url: '#',
-      icon: FrameIcon,
-    },
-    {
-      name: 'Sales & Marketing',
-      url: '#',
-      icon: PieChartIcon,
-    },
-    {
-      name: 'Travel',
-      url: '#',
-      icon: MapIcon,
     },
   ],
 };
@@ -190,27 +185,27 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
 
   return (
     <>
-      <Sidebar side='right'>
+      <Sidebar side="right">
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
               <div
                 className={cn(
-                  'h-[36px] overflow-hidden transition-all [&>div]:w-full',
-                  sidebar.open ? '' : '-mx-1'
+                  "h-[60px] overflow-hidden transition-all [&>div]:w-full",
+                  sidebar.open ? "" : "-mx-1"
                 )}
               >
-                <OrganizationSwitcher
-                  hidePersonal
-                  afterSelectOrganizationUrl="/"
-                />
+                <div className="flex flex-col px-4 py-3">
+                  <h2 className="text-xs">خوش آمدید</h2>
+                  <p className="text-lg">آرمان سلطانی</p>
+                </div>
               </div>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Platform</SidebarGroupLabel>
+            <SidebarGroupLabel>خدمات شــارژ و بسته</SidebarGroupLabel>
             <SidebarMenu>
               {data.navMain.map((item) => (
                 <Collapsible
@@ -229,7 +224,7 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
                       <>
                         <CollapsibleTrigger asChild>
                           <SidebarMenuAction className="data-[state=open]:rotate-90">
-                            <ChevronRightIcon />
+                            <ChevronDownIcon />
                             <span className="sr-only">Toggle</span>
                           </SidebarMenuAction>
                         </CollapsibleTrigger>
@@ -251,54 +246,6 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
                   </SidebarMenuItem>
                 </Collapsible>
               ))}
-            </SidebarMenu>
-          </SidebarGroup>
-          <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-            <SidebarGroupLabel>Projects</SidebarGroupLabel>
-            <SidebarMenu>
-              {data.projects.map((item) => (
-                <SidebarMenuItem key={item.name}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.name}</span>
-                    </a>
-                  </SidebarMenuButton>
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <SidebarMenuAction showOnHover>
-                        <MoreHorizontalIcon />
-                        <span className="sr-only">More</span>
-                      </SidebarMenuAction>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent
-                      className="w-48"
-                      side="bottom"
-                      align="end"
-                    >
-                      <DropdownMenuItem>
-                        <FolderIcon className="text-muted-foreground" />
-                        <span>View Project</span>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        <ShareIcon className="text-muted-foreground" />
-                        <span>Share Project</span>
-                      </DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                      <DropdownMenuItem>
-                        <Trash2Icon className="text-muted-foreground" />
-                        <span>Delete Project</span>
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </SidebarMenuItem>
-              ))}
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  <MoreHorizontalIcon />
-                  <span>More</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroup>
           <SidebarGroup className="mt-auto">
@@ -325,9 +272,9 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
                 showName
                 appearance={{
                   elements: {
-                    rootBox: 'flex overflow-hidden w-full',
-                    userButtonBox: 'flex-row-reverse',
-                    userButtonOuterIdentifier: 'truncate pl-0',
+                    rootBox: "flex overflow-hidden w-full",
+                    userButtonBox: "flex-row-reverse",
+                    userButtonOuterIdentifier: "truncate pl-0",
                   },
                 }}
               />
